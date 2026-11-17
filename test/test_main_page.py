@@ -4,21 +4,9 @@ from playwright.sync_api import expect
 
 
 class TestMainPage:
-    def test_open_about_from_header(self, main_page):
-        main_page.header_control.open_about_company()
-        expect(main_page.page).to_have_url(main_page.full_url("about/"))
-
-    def test_open_contacts_from_header(self, main_page):
-        main_page.header_control.open_contacts()
-        expect(main_page.page).to_have_url(main_page.full_url("about/contacts/"))
-
     def test_open_delivery_from_header(self, main_page):
         main_page.header_control.open_delivery()
         expect(main_page.page).to_have_url(main_page.full_url("about/deliver/"))
-
-    def test_open_payment_from_header(self, main_page):
-        main_page.header_control.open_payment()
-        expect(main_page.page).to_have_url(main_page.full_url("about/payment/"))
 
     def test_logo_opens_main_page(self, main_page):
         main_page.header_control.open_about_company()

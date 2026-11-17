@@ -17,3 +17,17 @@ class TestContacts:
         expect(contacts_page.contact_msc_locator).to_contain_text("Адрес:")
         expect(contacts_page.chat_locator).to_be_visible()
         expect(contacts_page.other_shops_locator).to_be_visible()
+
+    def test_close_jivo_chat(self, main_page, contacts_page):
+        main_page.header_control.open_contacts()
+        expect(contacts_page.jivo_locator).to_be_visible(timeout=15000)
+        contacts_page.close_jivo_chat()
+        expect(contacts_page.jivo_locator).to_be_hidden()
+
+    def test_open_jivo_chat(self, main_page, contacts_page):
+        main_page.header_control.open_contacts()
+        expect(contacts_page.jivo_locator).to_be_visible(timeout=30000)
+        contacts_page.close_jivo_chat()
+        expect(contacts_page.jivo_locator).to_be_hidden()
+        contacts_page.open_jivo_chat()
+        expect(contacts_page.jivo_locator).to_be_visible(timeout=15000)

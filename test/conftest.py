@@ -15,8 +15,8 @@ def playwright_instance():
 
 @pytest.fixture
 def browser(playwright_instance):
-    browser = playwright_instance.chromium.launch(headless=True)
-    #browser = playwright_instance.chromium.launch(headless=False, slow_mo=1000)  # чтобы видеть шаги
+    #browser = playwright_instance.chromium.launch(headless=True)
+    browser = playwright_instance.chromium.launch(headless=False, slow_mo=1000)  # чтобы видеть шаги
     yield browser
     browser.close()
 
